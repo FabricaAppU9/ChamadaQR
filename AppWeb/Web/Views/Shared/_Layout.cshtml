@@ -32,7 +32,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a style="color:#ff981f;" asp-area="" asp-controller="Home" asp-action="Index">Lista de Presença</a></li>
+                    <li><a style="color:#ff981f;" asp-area="" asp-controller="Home" asp-action="ListPresen">Lista de Presença</a></li>
                     <li><a style="color:#ff981f;" asp-area="" asp-controller="Home" asp-action="About">Cadastrar Alunos</a></li>
                     <li><a style="color:#ff981f;" asp-area="" asp-controller="Home" asp-action="Contact">Gerar Presença</a></li>
                 </ul>
@@ -41,10 +41,6 @@
     </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2017 - Web</p>
-        </footer>
     </div>
 
     <environment names="Development">
