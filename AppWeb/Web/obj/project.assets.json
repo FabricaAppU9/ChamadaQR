@@ -9778,11 +9778,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\souza\\Desktop\\Nova pasta\\ChamadaQR\\Web\\Web.csproj",
+      "projectUniqueName": "C:\\Users\\souza\\Desktop\\Projeto\\ChamadaQR\\AppWeb\\Web\\Web.csproj",
       "projectName": "Web",
-      "projectPath": "C:\\Users\\souza\\Desktop\\Nova pasta\\ChamadaQR\\Web\\Web.csproj",
+      "projectPath": "C:\\Users\\souza\\Desktop\\Projeto\\ChamadaQR\\AppWeb\\Web\\Web.csproj",
       "packagesPath": "C:\\Users\\souza\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\souza\\Desktop\\Nova pasta\\ChamadaQR\\Web\\obj\\",
+      "outputPath": "C:\\Users\\souza\\Desktop\\Projeto\\ChamadaQR\\AppWeb\\Web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\souza\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -4265,6 +4265,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px;
+  border-bottom-color: #ff981f;
+  background-color: white;
 }
 .navbar-fixed-bottom {
   bottom: 0;
