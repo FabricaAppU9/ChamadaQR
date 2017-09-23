@@ -3678,6 +3678,18 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "ZXing.Net.Core/0.2.7": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "lib/netstandard1.4/ZXing.Net.Core.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.4/ZXing.Net.Core.dll": {}
+        }
       }
     }
   },
@@ -9756,6 +9768,16 @@
         "system.xml.xpath.xdocument.4.0.1.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "ZXing.Net.Core/0.2.7": {
+      "sha512": "PPYGJbI+Ws/YFVpdEYYSVm3ZcXsZbuQvv/Vwzf2l6sm15wq9UtR7ZkhnCpVKB+55JSSYHOIM8kG7BH+F3XeaRg==",
+      "type": "package",
+      "path": "zxing.net.core/0.2.7",
+      "files": [
+        "lib/netstandard1.4/ZXing.Net.Core.dll",
+        "zxing.net.core.0.2.7.nupkg.sha512",
+        "zxing.net.core.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -9766,7 +9788,8 @@
       "Microsoft.AspNetCore.StaticFiles >= 1.1.2",
       "Microsoft.Extensions.Logging.Debug >= 1.1.2",
       "Microsoft.NETCore.App >= 1.1.2",
-      "Microsoft.VisualStudio.Web.BrowserLink >= 1.1.2"
+      "Microsoft.VisualStudio.Web.BrowserLink >= 1.1.2",
+      "ZXing.Net.Core >= 0.2.7"
     ]
   },
   "packageFolders": {
@@ -9828,6 +9851,10 @@
           "Microsoft.ApplicationInsights.AspNetCore": {
             "target": "Package",
             "version": "2.0.0"
+          },
+          "ZXing.Net.Core": {
+            "target": "Package",
+            "version": "0.2.7"
           },
           "Microsoft.AspNetCore.StaticFiles": {
             "target": "Package",

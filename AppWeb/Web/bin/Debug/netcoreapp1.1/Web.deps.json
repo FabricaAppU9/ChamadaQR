@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.1",
-    "signature": "8121e8722d923a37d134fbaa99a24b664e560cab"
+    "signature": "aaafbfd5b2c1964423e40d8501623d13e451d75b"
   },
   "compilationOptions": {
     "defines": [
@@ -29,7 +29,8 @@
           "Microsoft.AspNetCore.StaticFiles": "1.1.2",
           "Microsoft.Extensions.Logging.Debug": "1.1.2",
           "Microsoft.NETCore.App": "1.1.2",
-          "Microsoft.VisualStudio.Web.BrowserLink": "1.1.2"
+          "Microsoft.VisualStudio.Web.BrowserLink": "1.1.2",
+          "ZXing.Net.Core": "0.2.7"
         },
         "runtime": {
           "Web.dll": {}
@@ -1328,6 +1329,17 @@
         },
         "compile": {
           "lib/netstandard1.0/System.Text.Encodings.Web.dll": {}
+        }
+      },
+      "zxing.net.core/0.2.7": {
+        "dependencies": {
+          "NETStandard.Library": "1.6.1"
+        },
+        "runtime": {
+          "lib/netstandard1.4/ZXing.Net.Core.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.4/ZXing.Net.Core.dll": {}
         }
       },
       "libuv/1.9.1": {
@@ -3609,6 +3621,13 @@
       "sha512": "sha512-tcfPv+q/nK+5EsAxCLauIOd0kL+lZsXQ4lPKRnh8ex6O1Rm8WAN3LtF2GDFHyD0glSmUpIrgTnLhHCkMAKo3Ug==",
       "path": "system.text.encodings.web/4.3.1",
       "hashPath": "system.text.encodings.web.4.3.1.nupkg.sha512"
+    },
+    "zxing.net.core/0.2.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PPYGJbI+Ws/YFVpdEYYSVm3ZcXsZbuQvv/Vwzf2l6sm15wq9UtR7ZkhnCpVKB+55JSSYHOIM8kG7BH+F3XeaRg==",
+      "path": "zxing.net.core/0.2.7",
+      "hashPath": "zxing.net.core.0.2.7.nupkg.sha512"
     },
     "libuv/1.9.1": {
       "type": "package",
