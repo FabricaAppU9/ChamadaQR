@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ChamadaQrApp.iml" filepath="$PROJECT_DIR$/ChamadaQrApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ChamadaQR.iml" filepath="$PROJECT_DIR$/ChamadaQR.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
