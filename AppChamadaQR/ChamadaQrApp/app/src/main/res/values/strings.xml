@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">ChamadaQR</string>
-    <string name="txt_login">Usuário</string>
-    <string name="txt_senha">Senha</string>
-    <string name="botao_login">Entrar</string>
-    <string name="botao_registrar">Cadastrar</string>
-</resources>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ChamadaQR</string>
+    <string name="telaEventos">Eventos</string>
+    <string name="txt_login">Usuário</string>
+    <string name="txt_senha">Senha</string>
+    <string name="botao_login">Entrar</string>
+    <string name="botao_registrar">Cadastrar</string>
+    <string name="lblNomeEvento">Nome: </string>
+    <string name="lblInicioEvento">Início: </string>
+    <string name="lblTerminoEvento">Término: </string>
+    <string name="acessarCamera">Marcar Presença</string>
+    <string name="formulario_projetos">Cadastro de Projeto</string>
+</resources>
