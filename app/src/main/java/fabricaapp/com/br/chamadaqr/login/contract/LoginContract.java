@@ -1,6 +1,9 @@
 package fabricaapp.com.br.chamadaqr.login.contract;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 
 import fabricaapp.com.br.chamadaqr.basecontract.BaseContract;
 
@@ -12,6 +15,11 @@ public class LoginContract {
 
     public interface Presenter extends BaseContract.Presenter<View> {
 
-        void openCamera(Context context);
+        void openCamera();
+
+        void getPermission(Activity activity);
+
+        @RequiresApi(Build.VERSION_CODES.M)
+        void verifyPermissions(int[] grantResults, Activity activity);
     }
 }
