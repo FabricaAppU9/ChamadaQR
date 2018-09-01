@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#fc6500</color>
-    <color name="colorPrimaryDark">#cc5200</color>
-    <color name="colorAccent">#ff6600</color>
-    <color name="Botao_Login">#ff6600</color>
-    <color name="txtBotao_login">#ff6600</color>
-    <color name="btnAceesarCamera">#FFF</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="laranja_efc026">#efc026</color>
+    <color name="laranja_f1d372">#f1d372</color>
 </resources>
