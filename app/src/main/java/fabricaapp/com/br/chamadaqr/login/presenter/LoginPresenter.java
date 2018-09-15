@@ -4,10 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
-import android.widget.Toast;
 
 import fabricaapp.com.br.chamadaqr.cameraqr.view.CameraQrCodeActivity;
 import fabricaapp.com.br.chamadaqr.login.contract.LoginContract;
