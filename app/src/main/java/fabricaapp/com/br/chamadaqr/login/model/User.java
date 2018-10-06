@@ -1,4 +1,4 @@
-package fabricaapp.com.br.chamadaqr.model;
+package fabricaapp.com.br.chamadaqr.login.model;
 
 public class User {
 
