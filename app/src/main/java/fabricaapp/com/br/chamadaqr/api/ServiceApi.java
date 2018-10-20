@@ -5,6 +5,9 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface ServiceApi {
-    @GET("url")
+    @GET("aluno")
     Call<ResponseBody> getUsers();
+
+    @GET("frequencia")
+    Call<ResponseBody> frequency();
 }

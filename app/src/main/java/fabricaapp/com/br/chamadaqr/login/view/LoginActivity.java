@@ -3,10 +3,12 @@ package fabricaapp.com.br.chamadaqr.login.view;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import fabricaapp.com.br.chamadaqr.R;
 import fabricaapp.com.br.chamadaqr.login.contract.LoginContract;
@@ -19,6 +21,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private EditText userName;
     private EditText userPassword;
     private Button btnLogin;
+    private ProgressBar progressBar;
 
     private LoginContract.Presenter presenter = new LoginPresenter();
 
@@ -50,6 +53,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         userName = findViewById(R.id.user_name);
         userPassword = findViewById(R.id.user_passsowrd);
         btnLogin = findViewById(R.id.btn_login);
+        progressBar = findViewById(R.id.progressBar);
 
         btnLogin.setOnClickListener(this);
 
@@ -59,7 +63,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_login:
-                presenter.openCamera();
+                presenter.loginUser();
+                progressBar.setVisibility(View.VISIBLE);
                 break;
         }
     }
@@ -77,5 +82,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+    }
+
+    @Override
+    public void showSnackBarError() {
+        progressBar.setVisibility(View.GONE);
+        Snackbar.make(btnLogin, "Usuário incorreto ou não autorizado", Snackbar.LENGTH_LONG).show();
     }
 }

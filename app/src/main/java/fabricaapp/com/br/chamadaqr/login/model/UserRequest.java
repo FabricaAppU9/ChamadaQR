@@ -1,6 +1,7 @@
 package fabricaapp.com.br.chamadaqr.login.model;
 
 
+import fabricaapp.com.br.chamadaqr.api.BaseSync;
 import fabricaapp.com.br.chamadaqr.api.RetrofitConfig;
 import fabricaapp.com.br.chamadaqr.api.ServiceApi;
 import fabricaapp.com.br.chamadaqr.api.SyncInterface;
@@ -9,7 +10,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class UserRequest implements SyncInterface {
+public class UserRequest extends BaseSync {
 
     private Call<ResponseBody> call;
 

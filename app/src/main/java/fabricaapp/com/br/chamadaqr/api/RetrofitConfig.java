@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitConfig {
 
-    public static final String URL_BASE = "BaseUrl";
+    public static final String URL_BASE = "http://chamadawsu9.azurewebsites.net/api/";
 
     private static Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(URL_BASE)

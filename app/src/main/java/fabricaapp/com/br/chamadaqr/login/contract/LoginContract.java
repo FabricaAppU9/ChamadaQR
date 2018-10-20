@@ -10,6 +10,8 @@ public class LoginContract {
 
     public interface View extends BaseContract.View {
 
+        void showSnackBarError();
+
     }
 
     public interface Presenter extends BaseContract.Presenter<View> {
@@ -20,5 +22,7 @@ public class LoginContract {
 
         @RequiresApi(Build.VERSION_CODES.M)
         void verifyPermissions(int[] grantResults, Activity activity);
+
+        void loginUser();
     }
 }

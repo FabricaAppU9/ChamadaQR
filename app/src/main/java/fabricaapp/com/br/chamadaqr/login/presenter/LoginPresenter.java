@@ -6,13 +6,18 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.content.ContextCompat;
 
+import fabricaapp.com.br.chamadaqr.api.SyncInterface;
 import fabricaapp.com.br.chamadaqr.cameraqr.view.CameraQrCodeActivity;
 import fabricaapp.com.br.chamadaqr.login.contract.LoginContract;
+import fabricaapp.com.br.chamadaqr.login.model.User;
+import fabricaapp.com.br.chamadaqr.login.model.UserRequest;
 
-public class LoginPresenter implements LoginContract.Presenter {
+public class LoginPresenter implements LoginContract.Presenter, SyncInterface {
 
     public LoginContract.View view;
     public static final int MY_CAMERA_REQUEST_CODE = 10;
+
+    private UserRequest request;
 
     @Override
     public void attachView(LoginContract.View view) {
@@ -46,5 +51,22 @@ public class LoginPresenter implements LoginContract.Presenter {
         if (grantResults.length > 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED) {
             getPermission(activity);
         }
+    }
+
+    @Override
+    public void loginUser() {
+
+        request = new UserRequest(this, new User());
+        request.onStartSync();
+    }
+
+    @Override
+    public void onSuccessSync() {
+        openCamera();
+    }
+
+    @Override
+    public void onFailureSync() {
+        view.showSnackBarError();
     }
 }

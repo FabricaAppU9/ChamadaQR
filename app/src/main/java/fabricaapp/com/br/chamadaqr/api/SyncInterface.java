@@ -8,6 +8,5 @@ public interface SyncInterface {
 
     void onSuccessSync();
     void onFailureSync();
-    void onStartSync();
 
 }
