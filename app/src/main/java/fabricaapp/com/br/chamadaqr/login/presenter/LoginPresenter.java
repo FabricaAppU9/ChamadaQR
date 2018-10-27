@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.v4.content.ContextCompat;
 
 import fabricaapp.com.br.chamadaqr.api.SyncInterface;
@@ -16,6 +17,7 @@ public class LoginPresenter implements LoginContract.Presenter, SyncInterface {
 
     public LoginContract.View view;
     public static final int MY_CAMERA_REQUEST_CODE = 10;
+    private User user;
 
     private UserRequest request;
 
@@ -38,7 +40,9 @@ public class LoginPresenter implements LoginContract.Presenter, SyncInterface {
     @Override
     public void getPermission(Activity activity) {
         if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
+                != PackageManager.PERMISSION_GRANTED
+                && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
             activity.requestPermissions(new String[]{Manifest.permission.CAMERA},
                     MY_CAMERA_REQUEST_CODE);
 
@@ -54,9 +58,9 @@ public class LoginPresenter implements LoginContract.Presenter, SyncInterface {
     }
 
     @Override
-    public void loginUser() {
+    public void loginUser(String matricula) {
 
-        request = new UserRequest(this, new User());
+        request = new UserRequest(this, matricula, user);
         request.onStartSync();
     }
 

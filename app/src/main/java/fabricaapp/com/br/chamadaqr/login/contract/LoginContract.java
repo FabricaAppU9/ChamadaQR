@@ -20,9 +20,8 @@ public class LoginContract {
 
         void getPermission(Activity activity);
 
-        @RequiresApi(Build.VERSION_CODES.M)
         void verifyPermissions(int[] grantResults, Activity activity);
 
-        void loginUser();
+        void loginUser(String matricula);
     }
 }

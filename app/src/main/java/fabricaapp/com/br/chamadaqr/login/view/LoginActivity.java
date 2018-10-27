@@ -1,6 +1,7 @@
 package fabricaapp.com.br.chamadaqr.login.view;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -19,7 +20,6 @@ import static fabricaapp.com.br.chamadaqr.login.presenter.LoginPresenter.MY_CAME
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener, LoginContract.View {
 
     private EditText userName;
-    private EditText userPassword;
     private Button btnLogin;
     private ProgressBar progressBar;
 
@@ -51,7 +51,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         presenter.getPermission(LoginActivity.this);
 
         userName = findViewById(R.id.user_name);
-        userPassword = findViewById(R.id.user_passsowrd);
         btnLogin = findViewById(R.id.btn_login);
         progressBar = findViewById(R.id.progressBar);
 
@@ -63,7 +62,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_login:
-                presenter.loginUser();
+                presenter.loginUser(userName.getText().toString());
                 progressBar.setVisibility(View.VISIBLE);
                 break;
         }
@@ -77,7 +76,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == MY_CAMERA_REQUEST_CODE) {
+        if (requestCode == MY_CAMERA_REQUEST_CODE && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             presenter.verifyPermissions(grantResults, LoginActivity.this);
         } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -87,6 +86,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void showSnackBarError() {
         progressBar.setVisibility(View.GONE);
-        Snackbar.make(btnLogin, "Usuário incorreto ou não autorizado", Snackbar.LENGTH_LONG).show();
+        Snackbar.make(btnLogin, getContext().getString(R.string.unauthorized_user), Snackbar.LENGTH_LONG).show();
     }
 }

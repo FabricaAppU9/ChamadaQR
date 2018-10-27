@@ -1,5 +1,6 @@
 package fabricaapp.com.br.chamadaqr.cameraqr.view;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -7,16 +8,29 @@ import android.widget.Toast;
 
 import com.google.zxing.Result;
 
+import fabricaapp.com.br.chamadaqr.cameraqr.contract.CameraQrContract;
+import fabricaapp.com.br.chamadaqr.cameraqr.presenter.CameraQrPresenter;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
-public class CameraQrCodeActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
+public class CameraQrCodeActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler,
+        CameraQrContract.View {
 
     private ZXingScannerView scannerView;
+
+    private CameraQrContract.Presenter presenter = new CameraQrPresenter();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initViews();
+        presenter.attachView(this);
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.detachView();
     }
 
     private void initViews() {
@@ -39,5 +53,10 @@ public class CameraQrCodeActivity extends AppCompatActivity implements ZXingScan
     public void handleResult(Result result) {
         Toast.makeText(this, result.getText(), Toast.LENGTH_SHORT).show();
         finish();
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
     }
 }

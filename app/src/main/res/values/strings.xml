@@ -3,4 +3,5 @@
     <string name="access">Acessar</string>
     <string name="user_password">Digite sua senha</string>
     <string name="type_your_id">Digite seu RA</string>
+    <string name="unauthorized_user">RA incorreto ou não autorizado</string>
 </resources>

@@ -1,25 +1,28 @@
 package fabricaapp.com.br.chamadaqr.login.model;
 
 
+
 import fabricaapp.com.br.chamadaqr.api.BaseSync;
 import fabricaapp.com.br.chamadaqr.api.RetrofitConfig;
 import fabricaapp.com.br.chamadaqr.api.ServiceApi;
 import fabricaapp.com.br.chamadaqr.api.SyncInterface;
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UserRequest extends BaseSync {
 
-    private Call<ResponseBody> call;
+    private Call<User> call;
 
     private SyncInterface syncInterface;
 
+    private String matricula;
+
     private User user;
 
-    public UserRequest(SyncInterface syncInterface, User user) {
+    public UserRequest(SyncInterface syncInterface, String matricula, User user) {
         this.syncInterface = syncInterface;
+        this.matricula = matricula;
         this.user = user;
     }
 
@@ -38,15 +41,21 @@ public class UserRequest extends BaseSync {
     public void onStartSync() {
         ServiceApi serviceApi = RetrofitConfig.getService();
 
-        call = serviceApi.getUsers();
-        call.enqueue(new Callback<ResponseBody>() {
+        call = serviceApi.loginUser(matricula);
+        call.enqueue(new Callback<User>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                onSuccessSync();
+            public void onResponse(Call<User> call, Response<User> response) {
+
+                if (response.body() != null) {
+                    user = response.body();
+                    onSuccessSync();
+                } else {
+                    onFailureSync();
+                }
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<User> call, Throwable t) {
                 onFailureSync();
             }
         });
