@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import com.google.zxing.Result;
 
@@ -24,6 +23,7 @@ public class CameraQrCodeActivity extends AppCompatActivity implements ZXingScan
         super.onCreate(savedInstanceState);
         initViews();
         presenter.attachView(this);
+        presenter.getDate();
 
     }
 
@@ -51,10 +51,9 @@ public class CameraQrCodeActivity extends AppCompatActivity implements ZXingScan
 
     @Override
     public void handleResult(Result result) {
-        Toast.makeText(this, result.getText(), Toast.LENGTH_SHORT).show();
-        finish();
-    }
+        presenter.validQRCode(result.getText());
 
+    }
     @Override
     public Context getContext() {
         return this;

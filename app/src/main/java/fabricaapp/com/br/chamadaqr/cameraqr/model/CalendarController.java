@@ -6,17 +6,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CalendarRequest  {
+public class CalendarController {
 
     private Call<Date> call;
 
-    private Date date;
-
     private String dateString;
 
-    public CalendarRequest(Date date, String dateString) {
-        this.date = date;
+    ResponseCameraListener listener;
+
+    public CalendarController(ResponseCameraListener listener, String dateString) {
         this.dateString = dateString;
+        this.listener = listener;
     }
 
     public void onStartSync() {
@@ -28,7 +28,9 @@ public class CalendarRequest  {
             @Override
             public void onResponse(Call<Date> call, Response<Date> response) {
                 if (response.body() != null) {
-                    date = response.body();
+                    Date date = response.body();
+                    listener.getDate(date
+                    );
                 }
             }
 

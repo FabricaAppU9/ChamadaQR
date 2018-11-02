@@ -1,12 +1,15 @@
 package fabricaapp.com.br.chamadaqr.cameraqr.model;
 
 public class Date {
-    private final int dataId;
+    private int dataId;
 
-    private final String dataNome;
+    private String dataNome;
 
-    public Date(int dataId, String dataNome) {
+    public void setDataId(int dataId) {
         this.dataId = dataId;
+    }
+
+    public void setDataNome(String dataNome) {
         this.dataNome = dataNome;
     }
 

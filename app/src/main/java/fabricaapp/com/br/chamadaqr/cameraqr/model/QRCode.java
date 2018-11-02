@@ -1,12 +1,15 @@
 package fabricaapp.com.br.chamadaqr.cameraqr.model;
 
 public class QRCode {
-    private final int qrCodeId;
+    private int qrCodeId;
 
-    private final String validacao;
+    private String validacao;
 
-    public QRCode(int qrCodeId, String validacao) {
+    public void setQrCodeId(int qrCodeId) {
         this.qrCodeId = qrCodeId;
+    }
+
+    public void setValidacao(String validacao) {
         this.validacao = validacao;
     }
 

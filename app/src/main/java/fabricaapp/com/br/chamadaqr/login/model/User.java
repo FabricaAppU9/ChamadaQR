@@ -3,34 +3,43 @@ package fabricaapp.com.br.chamadaqr.login.model;
 
 
 public class User {
-    private final int alunoId;
+    private int alunoId;
 
-    private final long matricula;
+    private long matricula;
 
-    private final String alunoNome;
+    private String alunoNome;
 
-    private final String status;
-
-    public User(int alunoId, long matricula, String alunoNome, String status) {
-        this.alunoId = alunoId;
-        this.matricula = matricula;
-        this.alunoNome = alunoNome;
-        this.status = status;
-    }
+    private String status;
 
     public int getAlunoId() {
         return alunoId;
+    }
+
+    public void setAlunoId(int alunoId) {
+        this.alunoId = alunoId;
     }
 
     public long getMatricula() {
         return matricula;
     }
 
+    public void setMatricula(long matricula) {
+        this.matricula = matricula;
+    }
+
     public String getAlunoNome() {
         return alunoNome;
     }
 
+    public void setAlunoNome(String alunoNome) {
+        this.alunoNome = alunoNome;
+    }
+
     public String getStatus() {
         return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

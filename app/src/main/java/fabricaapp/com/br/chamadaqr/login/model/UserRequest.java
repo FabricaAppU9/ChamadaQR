@@ -2,6 +2,7 @@ package fabricaapp.com.br.chamadaqr.login.model;
 
 
 
+import fabricaapp.com.br.chamadaqr.Utils;
 import fabricaapp.com.br.chamadaqr.api.BaseSync;
 import fabricaapp.com.br.chamadaqr.api.RetrofitConfig;
 import fabricaapp.com.br.chamadaqr.api.ServiceApi;
@@ -20,10 +21,10 @@ public class UserRequest extends BaseSync {
 
     private User user;
 
-    public UserRequest(SyncInterface syncInterface, String matricula, User user) {
+    public UserRequest(SyncInterface syncInterface, String matricula) {
         this.syncInterface = syncInterface;
         this.matricula = matricula;
-        this.user = user;
+
     }
 
     @Override
@@ -48,6 +49,7 @@ public class UserRequest extends BaseSync {
 
                 if (response.body() != null) {
                     user = response.body();
+                    Utils.STUDENT_ID = String.valueOf(user.getAlunoId());
                     onSuccessSync();
                 } else {
                     onFailureSync();

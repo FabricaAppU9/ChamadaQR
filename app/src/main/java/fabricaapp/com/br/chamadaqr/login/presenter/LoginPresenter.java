@@ -10,14 +10,12 @@ import android.support.v4.content.ContextCompat;
 import fabricaapp.com.br.chamadaqr.api.SyncInterface;
 import fabricaapp.com.br.chamadaqr.cameraqr.view.CameraQrCodeActivity;
 import fabricaapp.com.br.chamadaqr.login.contract.LoginContract;
-import fabricaapp.com.br.chamadaqr.login.model.User;
 import fabricaapp.com.br.chamadaqr.login.model.UserRequest;
 
 public class LoginPresenter implements LoginContract.Presenter, SyncInterface {
 
     public LoginContract.View view;
     public static final int MY_CAMERA_REQUEST_CODE = 10;
-    private User user;
 
     private UserRequest request;
 
@@ -60,7 +58,7 @@ public class LoginPresenter implements LoginContract.Presenter, SyncInterface {
     @Override
     public void loginUser(String matricula) {
 
-        request = new UserRequest(this, matricula, user);
+        request = new UserRequest(this, matricula);
         request.onStartSync();
     }
 

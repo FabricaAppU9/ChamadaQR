@@ -4,4 +4,8 @@
     <string name="user_password">Digite sua senha</string>
     <string name="type_your_id">Digite seu RA</string>
     <string name="unauthorized_user">RA incorreto ou não autorizado</string>
+    <string name="invalid_qrcode">QR Code inválido, tente novamente.</string>
+    <string name="alert">Alerta!</string>
+    <string name="message_ok">Presença cadastrada com sucesso!</string>
+    <string name="error">Erro ao cadastrar presença, tente novamente.</string>
 </resources>

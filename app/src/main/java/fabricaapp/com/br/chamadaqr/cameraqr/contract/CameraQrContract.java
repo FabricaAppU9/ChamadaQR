@@ -12,6 +12,8 @@ public class CameraQrContract {
 
         void getDate();
 
-        void getQRCode();
+        void getQRCodeRequest();
+
+        void validQRCode(String result);
     }
 }

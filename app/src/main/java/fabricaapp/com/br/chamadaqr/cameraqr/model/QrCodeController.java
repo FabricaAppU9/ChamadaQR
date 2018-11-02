@@ -2,22 +2,21 @@ package fabricaapp.com.br.chamadaqr.cameraqr.model;
 
 import java.util.List;
 
-import fabricaapp.com.br.chamadaqr.api.BaseSync;
 import fabricaapp.com.br.chamadaqr.api.RetrofitConfig;
 import fabricaapp.com.br.chamadaqr.api.ServiceApi;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class QrCodeRequest {
+public class QrCodeController {
 
     private Call<List<QRCode>> call;
 
-    private QRCode qrCode;
     private List<QRCode> qrCodeList;
+    private ResponseCameraListener listener;
 
-    public QrCodeRequest(QRCode qrCode) {
-        this.qrCode = qrCode;
+    public QrCodeController(ResponseCameraListener listener) {
+        this.listener = listener;
     }
 
     public void onStartSync() {
@@ -29,7 +28,7 @@ public class QrCodeRequest {
             public void onResponse(Call<List<QRCode>> call, Response<List<QRCode>> response) {
                 if (response.body() != null) {
                     qrCodeList = response.body();
-                    qrCode = qrCodeList.get(0);
+                    listener.getQRCode(qrCodeList.get(0));
                 }
             }
 
