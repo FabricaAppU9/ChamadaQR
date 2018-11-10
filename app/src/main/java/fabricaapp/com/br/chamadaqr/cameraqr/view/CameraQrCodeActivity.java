@@ -3,6 +3,7 @@ package fabricaapp.com.br.chamadaqr.cameraqr.view;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import com.google.zxing.Result;
@@ -57,5 +58,15 @@ public class CameraQrCodeActivity extends AppCompatActivity implements ZXingScan
     @Override
     public Context getContext() {
         return this;
+    }
+
+    @Override
+    public void closeActivity() {
+        finish();
+    }
+
+    @Override
+    public void closeApp() {
+        ActivityCompat.finishAffinity(this);
     }
 }

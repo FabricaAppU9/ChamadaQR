@@ -67,6 +67,7 @@ public class CameraQrPresenter implements CameraQrContract.Presenter, ResponseCa
         if (result.equals(qrCode.getValidacao())) {
             sendFrequency();
         } else {
+            view.closeActivity();
             Toast.makeText(view.getContext(), view.getContext().getString(R.string.invalid_qrcode), Toast.LENGTH_SHORT ).show();
         }
     }
@@ -88,10 +89,12 @@ public class CameraQrPresenter implements CameraQrContract.Presenter, ResponseCa
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
+                            view.closeApp();
                         }
                     });
         } else {
             Toast.makeText(context, context.getString(R.string.error), Toast.LENGTH_LONG).show();
+            view.closeActivity();
         }
     }
 
@@ -105,9 +108,10 @@ public class CameraQrPresenter implements CameraQrContract.Presenter, ResponseCa
     private void sendFrequency() {
 
         Frequency frequency = new Frequency();
-        frequency.setDateId(String.valueOf(date.getDataId()));
+        if (date != null)
+            frequency.setDateId(String.valueOf(date.getDataId()));
         frequency.setStudentId(Utils.STUDENT_ID);
-        frequency.setJustification("");
+        frequency.setFrequency("S");
 
         frequencyController = new FrequencyController(frequency,this);
         frequencyController.onStartSync();

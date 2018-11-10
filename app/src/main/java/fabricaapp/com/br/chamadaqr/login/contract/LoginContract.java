@@ -12,6 +12,9 @@ public class LoginContract {
 
         void showSnackBarError();
 
+        void hideProgressBar();
+
+        void hideKeyboard();
     }
 
     public interface Presenter extends BaseContract.Presenter<View> {

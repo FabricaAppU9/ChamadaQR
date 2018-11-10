@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -85,7 +86,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void showSnackBarError() {
-        progressBar.setVisibility(View.GONE);
         Snackbar.make(btnLogin, getContext().getString(R.string.unauthorized_user), Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void hideProgressBar() {
+        progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void hideKeyboard(){
+        InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (inputManager != null && getCurrentFocus() != null) {
+
+            inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                    InputMethodManager.HIDE_NOT_ALWAYS);
+        }
     }
 }

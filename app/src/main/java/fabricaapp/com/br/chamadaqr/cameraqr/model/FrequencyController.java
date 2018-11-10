@@ -54,10 +54,9 @@ public class FrequencyController  {
         JSONObject frequencyJson = new JSONObject();
 
         try {
-            frequencyJson.put("iddoaluno", frequency.getStudentId());
-            frequencyJson.put("dataid", frequency.getDateId());
-            frequencyJson.put("presenca", frequency.getFrequency());
-            frequencyJson.put("justificativa", frequency.getJustification());
+            frequencyJson.put("AlunoID", frequency.getStudentId());
+            frequencyJson.put("DataID", frequency.getDateId());
+            frequencyJson.put("Presenca", frequency.getFrequency());
 
         } catch (JSONException e) {
             e.printStackTrace();

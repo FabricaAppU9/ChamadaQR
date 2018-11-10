@@ -58,17 +58,21 @@ public class LoginPresenter implements LoginContract.Presenter, SyncInterface {
     @Override
     public void loginUser(String matricula) {
 
+        view.hideKeyboard();
         request = new UserRequest(this, matricula);
         request.onStartSync();
+
     }
 
     @Override
     public void onSuccessSync() {
+        view.hideProgressBar();
         openCamera();
     }
 
     @Override
     public void onFailureSync() {
+        view.hideProgressBar();
         view.showSnackBarError();
     }
 }
