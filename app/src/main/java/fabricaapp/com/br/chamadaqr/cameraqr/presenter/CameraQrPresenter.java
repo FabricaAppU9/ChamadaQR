@@ -83,7 +83,9 @@ public class CameraQrPresenter implements CameraQrContract.Presenter, ResponseCa
         Context context = view.getContext();
         if (isSuccess) {
             AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-            builder.setMessage(context.getString(R.string.alert))
+            builder.
+                    setTitle(context.getString(R.string.alert))
+                    .setMessage(context.getString(R.string.message_ok))
                     .setCancelable(false)
                     .setPositiveButton(context.getString(android.R.string.ok), new DialogInterface.OnClickListener() {
                         @Override
@@ -92,6 +94,7 @@ public class CameraQrPresenter implements CameraQrContract.Presenter, ResponseCa
                             view.closeApp();
                         }
                     });
+            builder.show();
         } else {
             Toast.makeText(context, context.getString(R.string.error), Toast.LENGTH_LONG).show();
             view.closeActivity();

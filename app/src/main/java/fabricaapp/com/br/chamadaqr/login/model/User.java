@@ -3,7 +3,7 @@ package fabricaapp.com.br.chamadaqr.login.model;
 
 
 public class User {
-    private int alunoId;
+    private int alunoID;
 
     private long matricula;
 
@@ -12,11 +12,11 @@ public class User {
     private String status;
 
     public int getAlunoId() {
-        return alunoId;
+        return alunoID;
     }
 
     public void setAlunoId(int alunoId) {
-        this.alunoId = alunoId;
+        this.alunoID = alunoId;
     }
 
     public long getMatricula() {
