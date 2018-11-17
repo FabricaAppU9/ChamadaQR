@@ -40,6 +40,7 @@ public class CameraQrCodeActivity extends AppCompatActivity implements ZXingScan
         setContentView(scannerView);
         scannerView.setAutoFocus(true);
         scannerView.setResultHandler(this);
+
     }
 
 

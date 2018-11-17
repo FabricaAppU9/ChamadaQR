@@ -27,11 +27,9 @@ public class CalendarController {
         call.enqueue(new Callback<Date>() {
             @Override
             public void onResponse(Call<Date> call, Response<Date> response) {
-                if (response.body() != null) {
-                    Date date = response.body();
-                    listener.getDate(date
-                    );
-                }
+
+                Date date = response.body();
+                listener.getDate(date);
             }
 
             @Override

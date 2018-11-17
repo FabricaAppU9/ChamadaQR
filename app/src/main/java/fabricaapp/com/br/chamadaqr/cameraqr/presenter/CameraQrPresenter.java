@@ -74,7 +74,24 @@ public class CameraQrPresenter implements CameraQrContract.Presenter, ResponseCa
 
     @Override
     public void getDate(Date date) {
-        this.date = date;
+        Context context = view.getContext();
+        if (date == null) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+            builder.
+                    setTitle(context.getString(R.string.alert))
+                    .setMessage(context.getString(R.string.no_events))
+                    .setCancelable(false)
+                    .setPositiveButton(context.getString(android.R.string.ok), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            view.closeActivity();
+                        }
+                    });
+            builder.show();
+        } else {
+            this.date = date;
+        }
     }
 
     @Override
@@ -111,8 +128,8 @@ public class CameraQrPresenter implements CameraQrContract.Presenter, ResponseCa
     private void sendFrequency() {
 
         Frequency frequency = new Frequency();
-        if (date != null)
-            frequency.setDateId(String.valueOf(date.getDataId()));
+
+        frequency.setDateId(String.valueOf(date.getDataId()));
         frequency.setStudentId(Utils.STUDENT_ID);
         frequency.setFrequency("S");
 

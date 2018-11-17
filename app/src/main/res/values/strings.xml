@@ -8,4 +8,5 @@
     <string name="alert">Alerta!</string>
     <string name="message_ok">Presença cadastrada com sucesso!</string>
     <string name="error">Erro ao cadastrar presença, tente novamente.</string>
+    <string name="no_events">Não existem eventos cadastrados para a data de hoje</string>
 </resources>
